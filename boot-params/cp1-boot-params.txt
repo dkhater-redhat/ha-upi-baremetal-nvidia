@@ -1,0 +1,1 @@
+rd.neednet=1 ip=172.16.2.117::172.16.2.1:255.255.255.0:gb300-cp-1.gb300-ha.nvidia.local:enP5p9s0:none nameserver=172.16.0.1 coreos.inst.install_dev=/dev/nvme3n1 coreos.inst.ignition_url=https://172.16.2.120:22623/config/master coreos.inst.insecure-ignition

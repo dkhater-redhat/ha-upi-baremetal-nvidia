@@ -7,12 +7,11 @@ metadata:
 spec:
   config:
     ignition:
-      version: 3.4.0
+      version: 3.2.0
     storage:
       files:
-        - path: /etc/containers/policy.json
-          mode: 420
-          overwrite: true
-          contents:
-            compression: gzip
-            source: data:;base64,H4sIAKFBf2oAA6tWUOBSAAGllNS0xNKcEiUrhehqpZLKglQgSykzrzg1ubQo1TE5ObWgxDGvsiQjMy9dqTZWB6qrpCgxr7ggv6ikGKi8GiIIFE4syc/NTAYJKRFpYK0OXHNKfnJ2ahFFmnVTElNz8/NIMgMWErVcYAIAiEOd/BoBAAA=
+      - contents:
+          source: data:text/plain;charset=utf-8;base64,ewogICJkZWZhdWx0IjogWwogICAgeyAidHlwZSI6ICJpbnNlY3VyZUFjY2VwdEFueXRoaW5nIiB9CiAgXQp9Cg==
+        mode: 420
+        overwrite: true
+        path: /etc/containers/policy.json

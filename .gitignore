@@ -1,10 +1,27 @@
+# Sensitive files
+pull-secret.json
+ssh.pub
+*.pem
+*.key
+auth/
+
+# Generated artifacts
 .openshift_install.log
 .openshift_install_state.json
 bootstrap-in-place-for-live-iso.ign
 install-config.yaml
+install-config-ha.yaml
 ocp/
-openshift-install
-pull-secret.json
-rhcos-10.2.20260423-0102-live-iso.aarch64.iso
-ssh.pub
+ocp-install/
 tpm.ign
+
+# Binaries
+openshift-install
+coreos-installer*
+
+# ISOs
+*.iso
+*.tar.gz
+
+# macOS
+.DS_Store

@@ -2,31 +2,24 @@
 set -e
 
 echo "=========================================="
-echo "Cleaning up generated files..."
+echo "Cleaning up generated HA installation files..."
 echo "=========================================="
 
 # Remove generated directories
-echo "  - Removing ocp/ directory..."
-rm -rf ocp/
+echo "  - Removing ocp-install/ directory..."
+rm -rf ocp-install/
+
+# Remove generated boot parameter files
+echo "  - Removing boot-params/ directory..."
+rm -rf boot-params/
 
 # Remove generated ISOs (keep the downloaded RHCOS ISO)
 echo "  - Removing generated ISOs..."
-find . -maxdepth 1 -name "rhcos-*.iso" ! -name "rhcos-*-live-iso.aarch64.iso" -delete 2>/dev/null || true
+rm -f gb300-*.iso 2>/dev/null || true
 
 # Remove generated ignition files
 echo "  - Removing ignition files..."
 rm -f *.ign
-
-# Remove generated configs
-echo "  - Removing generated configs..."
-rm -f install-config.yaml
-rm -f dnsmasq.bu
-
-# Remove generated manifests in local_openshift/
-echo "  - Removing generated manifests..."
-rm -f local_openshift/99-cluster-dns-02-config.yaml
-rm -f local_openshift/99-master-host-network-customizations.yaml
-rm -f local_openshift/99-master-zz-unsigned-policy.yaml
 
 echo ""
 echo "=========================================="
@@ -34,11 +27,12 @@ echo "Cleanup complete!"
 echo "=========================================="
 echo ""
 echo "Kept files:"
-echo "  - Scripts and templates"
+echo "  - Scripts (configure-ha.sh, prepare-ha-install.sh)"
 echo "  - ssh.pub and pull-secret.json"
 echo "  - Downloaded openshift-install and RHCOS ISO"
-echo "  - Source manifests (99-os-layer-custom-*.yaml)"
+echo "  - NVIDIA node image manifest (99-os-layer-custom-5.0.yaml)"
+echo "  - install-config-ha.yaml"
 echo ""
 echo "Next step:"
-echo "  ./configure-sno.sh"
+echo "  ./configure-ha.sh"
 echo ""
